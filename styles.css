@@ -42,10 +42,10 @@ body {
 
 .keys {
   display: grid;
-  grid-template-columns: repeat(9, 1fr);;
+  grid-template-columns: repeat(9, 1fr);
   column-gap: 5px;
   row-gap: 5px;
-  background-color: #4A4E69;
+  background-color: #4a4e69;
   padding: 13px;
   border-radius: 5px;
 }
@@ -66,15 +66,74 @@ body {
   cursor: pointer;
 }
 .letter:active {
-  background-color: #32CBFF;
+  background-color: #32cbff;
   transition: 0s;
 }
 
-.popup-parent{
+.popup-parent {
   background-color: rgba(0, 0, 0, 0.5);
   width: 100%;
   height: 100%;
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup {
+  width: 500px;
+  padding: 15px;
+  background-color: #4a4e69;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.popup h1 {
+  text-align: center;
+  font-size: 14pt;
+}
+
+.form {
+  width: 100%;
+  row-gap: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.select {
+  width: 100%;
+  padding: 10px;
+  font-size: 12pt;
+  background-color: #fbfcff;
+  border: 0;
+  border-radius: 5px;
+  font-family: "Open Sans";
+}
+
+.select option {
+  border: 0;
+}
+
+.submit {
+  width: 100%;
+  padding: 10px;
+  font-size: 12pt;
+  background-color: #89a1ef;
+  border: 0;
+  border-radius: 5px;
+  color: #fbfcff;
+  font-family: "Open Sans";
+}
+
+.d-none{
+  display: none;
+  visibility: hidden;
 }
 /* https://coolors.co/d0ccd0-fbfcff-605856-1c6e8c-274156  */
 /* https://coolors.co/32cbff-22223b-89a1ef-4a4e69-fecef1 */
