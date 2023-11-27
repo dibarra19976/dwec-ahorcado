@@ -13,5 +13,9 @@ form.addEventListener("submit", (event) => {
 //FUNCIONES
 
 function togglePopup(){
-    popupParent.classList.toggle("d-none");
+    popupParent.classList.toggle("d-animation");
+    popupParent.addEventListener("animationend", function() {
+        popupParent.classList.toggle("d-none");
+
+});
 }
