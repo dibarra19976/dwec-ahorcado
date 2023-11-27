@@ -30,10 +30,13 @@ body {
 }
 
 .title {
-  color: #89a1ef;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
+  background-color: #89a1ef;
+  color:#fbfcff;
   text-transform: uppercase;
-  width: 100%;
   text-align: center;
+  padding: 20px;
+  border-radius: 10px;
 }
 
 .word {
@@ -71,6 +74,8 @@ body {
   background-color: #4a4e69;
   padding: 13px;
   border-radius: 5px;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
+
 }
 .key {
   text-align: center;
@@ -151,6 +156,7 @@ body {
 }
 
 .select option {
+  font-family: "Open Sans";
   border: 0;
 }
 
