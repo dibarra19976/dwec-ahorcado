@@ -1,5 +1,10 @@
--- 27-11
+## 27-11
+-- HECHO
+Evento para reconocer las teclas presionadas, convertir la palabra a dos arrays para el juego. 
+Pulir el CSS y JS
 
+-- TODO
+Cambiar el div de word para que no me mate mostrando la palabra individialmente por un div por caracter
 
 netlify
 https://main--statuesque-malasada-d83dec.netlify.app/
