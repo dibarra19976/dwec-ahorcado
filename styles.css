@@ -45,6 +45,8 @@ body {
   font-size: 30pt;
   column-gap: 10px;
   text-align: center;
+  letter-spacing: 10px;
+  text-transform: capitalize;
 }
 .letter {
   width: 40px;

@@ -6,5 +6,18 @@ Pulir el CSS y JS
 -- TODO
 Cambiar el div de word para que no me mate mostrando la palabra individialmente por un div por caracter
 
+
+## 28-11
+-- HECHO
+Funciones y eventos para poder adivinar la palabra, y para disminuir los intentos, y para actualizar la iormacion.
+-- TODO
+Que se termnine el juego con la funcion que dice si la palabra esta adivinada o si los turnos restantes = 0
+Funcion para que el popup se muestre con la animacion pero de alreves (crear otra clase)
+Usar las ids para enseñar el div de ganar o perder
+Hacer el temporizador que descuente puntos y que se reinicie al tocar una tecla
+Objeto json con clases y palabaras 
+Funcion para iniciar el juego y seleccionar una palabra aleatoria
+
+
 netlify
 https://main--statuesque-malasada-d83dec.netlify.app/

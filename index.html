@@ -9,6 +9,13 @@
   <body>
     <div class="popup-parent" id="popup-parent">
       <div class="popup">
+        <div class="won d-none" id="won">
+          <h1>Has ganado jefe</h1>
+        </div>
+        <div class="loose d-none" id="loose">
+          <h1>Has perdido loser</h1>
+        </div>
+
         <h1>Selecciona una categoria</h1>
         <form action="#" class="form" id="form">
           <select name="select" id="select" class="select">
@@ -32,12 +39,9 @@
     <div class="container-parent">
       <div class="container">
         <div class="title"><h1>El juego del ahorcado</h1></div>
-        <div class="word">
-          <div class="letter">
-            <div class="letter-top">A</div>
-            <div class="letter-bottom"></div>
-          </div>
-        </div>
+        <p class="word" id="word">
+          
+        </p>
         <div class="top-info">
           <p>
             Selecciona una letra, le quedan
@@ -67,8 +71,8 @@
           <div class="key">S</div>
           <div class="key">T</div>
           <div class="key">U</div>
-          <div class="key correct">V</div>
-          <div class="key wrong">W</div>
+          <div class="key">V</div>
+          <div class="key">W</div>
           <div class="key">X</div>
           <div class="key">Y</div>
           <div class="key">Z</div>
