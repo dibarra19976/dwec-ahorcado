@@ -18,6 +18,18 @@ Hacer el temporizador que descuente puntos y que se reinicie al tocar una tecla
 Objeto json con clases y palabaras 
 Funcion para iniciar el juego y seleccionar una palabra aleatoria
 
+## 29-11
+-- HECHO
+Que el juego muestre un popup cuando se acaba la partida
+una funcion para iniciar una partida que tambien la reinicia
+el popup cambia si se pierde oo gana
+
+
+-- TODO
+Hacer que la primera letra de la palabra salga en mayusculas
+hacer el json con las palabras y categorias 
+funcion para eleigr una palabra aleatoria del json basado en la categorias elegida
+
 
 netlify
 https://main--statuesque-malasada-d83dec.netlify.app/
