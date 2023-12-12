@@ -1,0 +1,7 @@
+{
+    "comida" : ["Paella", "Kebab"],
+    "animales" : ["Canguro", "Capybara", "Lepisosteiformes"],
+    "objetos" : ["Escoba", "Cubo", "Bidet", "Matryoshka"],
+    "lugares" : ["Londres", "Paris", "Madrid", "Caceres", "Albacete"],
+    "videojuegos" :["Mario", "Yoshi", "Zelda", "Doom"]
+}

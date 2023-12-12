@@ -190,6 +190,11 @@ body {
   display: none;
   visibility: hidden;
 }
+
+.penalty{
+  animation: timePenalty 0.5s;
+}
+
 @keyframes hide {
   from {
     opacity: 1;
@@ -205,6 +210,14 @@ body {
   to {
     opacity: 1;
   }
+}
+
+@keyframes timePenalty {
+  from {
+    color: #ed217c;
+  }
+  to {
+    color: #fbfcff;  }
 }
 /* https://coolors.co/d0ccd0-fbfcff-605856-1c6e8c-274156  */
 /* https://coolors.co/32cbff-22223b-89a1ef-4a4e69-fecef1 */

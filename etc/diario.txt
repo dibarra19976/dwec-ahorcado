@@ -30,6 +30,14 @@ Hacer que la primera letra de la palabra salga en mayusculas
 hacer el json con las palabras y categorias 
 funcion para eleigr una palabra aleatoria del json basado en la categorias elegida
 
+## 05-11
+-- HECHO
+Funcion para seleccionar palabra aleatoria de un objeto 
+
+
+-- TODO
+Seleccionar palabras desde un archivo json
+Reloj 
 
 netlify
 https://main--statuesque-malasada-d83dec.netlify.app/

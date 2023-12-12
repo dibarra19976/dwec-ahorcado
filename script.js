@@ -1,3 +1,31 @@
+// Función para obtener los datos desde el archivo JSON
+const obtenerDatosDesdeJSON = (archivo, callback) => {
+  const request = new XMLHttpRequest();
+
+  request.addEventListener("readystatechange", () => {
+    if (request.readyState == 4 && request.status == 200) {
+      const respuesta = JSON.parse(request.responseText);
+      callback(null, respuesta);
+    } else if (request.readyState === 4) {
+      callback("No se han podido obtener los datos", null);
+    }
+  });
+
+  request.open("GET", archivo);
+  request.send();
+};
+
+// Llamada a la función para obtener las temáticas desde el archivo JSON
+obtenerDatosDesdeJSON("palabras.json", (error, datos) => {
+  if (error) {
+    console.error("Error al obtener las temáticas:", error);
+  } else {
+    palabras = datos;
+  }
+});
+
+
+
 /* ELEMENTOS DEL HTML*/
 
 const form = document.getElementById("form");
@@ -8,6 +36,8 @@ const keys = document.getElementById("keys");
 const word = document.getElementById("word");
 const won = document.getElementById("won");
 const loose = document.getElementById("loose");
+const tiempo = document.getElementById("tiempo");
+
 
 /*VARIABLES*/
 
@@ -15,6 +45,11 @@ let remainingAttempts = 7;
 let hiddenWord = "prueba";
 let wordCharArray = [];
 let wordBoolArray = [];
+
+let intervalCrono;
+let date = new Date();
+date.setHours(0, 0, 0, 0);
+
 
 /*EVENTOS*/
 
@@ -118,22 +153,45 @@ function advanceTurn(e) {
     remainingAttempts--;
     updateAttempts();
   }
+  reiniciarCrono();
   endGame(wordBoolArray);
 }
 
 function endGame(boolArray) {
   if (gameWon(boolArray)) {
+    stop();
     togglePopup(true);
   } else if (!gameWon(boolArray) && remainingAttempts <= 0) {
+    stop();
     togglePopup(false);
   }
 }
 
 function startGame(){
+  hiddenWord = selectWord(select.value);
+  console.log(hiddenWord);
   startWordArrays(hiddenWord);
   remainingAttempts = 7;
   restartKeyboard();
   updateInfo("_");
+  reiniciarCrono();
+  start();
+  
+}
+
+function selectWord(word){
+  let category = "";
+  if(word === "any"){
+    let categories = ["comida", "animales", "objetos", "lugares", "videojuegos"];
+    category = categories[getRandomInt(0, categories.length)];
+  }
+  
+  else{
+    category = word;
+  }
+  let wordArray = palabras[category];
+  let palabra = wordArray[getRandomInt(0, wordArray.length)];
+  return palabra;
 }
 
 function restartKeyboard(){
@@ -143,3 +201,58 @@ function restartKeyboard(){
     key.classList.remove("correct");
   })
 }
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min) + min);
+}
+
+
+function crono() {
+  let horas = date.getHours();
+  let minutos = date.getMinutes();
+  let segundos = date.getSeconds();
+
+  segundos += 1;
+
+  date.setSeconds(segundos);
+  date.setMinutes(minutos);
+  date.setHours(horas);
+
+  if (horas < 10) {
+    horas = "0" + horas;
+  }
+  if (minutos < 10) {
+    minutos = "0" + minutos;
+  }
+  if (segundos < 10) {
+    segundos = "0" + segundos;
+  }
+  
+  if (segundos==10){
+    reiniciarCrono();
+    remainingAttempts--;
+    updateAttempts();
+    tiempo.classList.add("penalty");
+    tiempo.addEventListener("animationend", () => {
+      tiempo.classList.remove("penalty");
+    });
+  }
+  tiempo.innerHTML = horas + ":" + minutos + ":" + segundos;
+}
+
+function reiniciarCrono(){
+  date.setHours(0, 0, 0, 0);
+  tiempo.innerHTML = "00:00:00";
+}
+
+function start() {
+  intervalCrono = setInterval(crono, 1000);
+}
+
+function stop() {
+  clearInterval(intervalCrono);
+}
+
+let boton = document.getElementById("boton");
