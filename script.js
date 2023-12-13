@@ -41,15 +41,16 @@ const tiempo = document.getElementById("tiempo");
 
 /*VARIABLES*/
 
+let usedAttempts = 0;
 let remainingAttempts = 7;
 let hiddenWord = "prueba";
 let wordCharArray = [];
 let wordBoolArray = [];
 
 let intervalCrono;
-let date = new Date();
+let date = new Date(0);
 date.setHours(0, 0, 0, 0);
-
+let segundosPenalizacion = 0;
 
 /*EVENTOS*/
 
@@ -76,6 +77,10 @@ function togglePopup(bool) {
   if (popupParent.classList.contains("d-animation")) {
     if(bool){
       won.classList.remove("d-none");
+      let h1 = won.querySelector("h1");
+      h1.innerText = `Has ganado en ${usedAttempts} intentos!`;
+      let p = won.querySelector("p");
+      p.innerText = `Has consegido adivinar la palabra con ${remainingAttempts} intentos restantes en ${tiempo.innerHTML} ` 
     }else{
       loose.classList.remove("d-none");
     }
@@ -146,19 +151,51 @@ function advanceTurn(e) {
   //Uso una funcion que comprueba que la letra este dentro de la palabra
   if (testLetter(letter, hiddenWord)) {
     //Si esta dentro de la palabra
+    usedAttempts++;
     e.classList.add("correct");
     updateInfo(letter);
+    segundosPenalizacion=0;
   } else {
+    usedAttempts++;
     e.classList.add("wrong");
     remainingAttempts--;
     updateAttempts();
+    segundosPenalizacion=0;
   }
-  reiniciarCrono();
   endGame(wordBoolArray);
 }
 
 function endGame(boolArray) {
   if (gameWon(boolArray)) {
+    var obj = localStorage.getItem(hiddenWord);
+    let objeto = {"palabra": hiddenWord, "intentos" : usedAttempts, "tiempo" : date };
+    
+    if(obj == null || obj === ""){
+      objeto = JSON.stringify(objeto);  
+      localStorage.setItem(hiddenWord, objeto);
+    }
+    else{
+      obj = JSON.parse(obj);
+      let intentos = obj.intentos;
+      let tiempo = new Date(obj.tiempo);
+
+      if(date < tiempo){
+        obj = JSON.stringify(obj);  
+        localStorage.setItem(hiddenWord, obj);
+      }
+      else if (date > tiempo ){
+        objeto = JSON.stringify(objeto);  
+        localStorage.setItem(hiddenWord, objeto);
+      }
+      else if (usedAttempts > intentos){
+        obj = JSON.stringify(obj);  
+        localStorage.setItem(hiddenWord, obj);
+      }
+      else if (usedAttempts < intentos){
+        objeto = JSON.stringify(objeto);  
+        localStorage.setItem(hiddenWord, objeto);
+      }
+    }
     stop();
     togglePopup(true);
   } else if (!gameWon(boolArray) && remainingAttempts <= 0) {
@@ -171,9 +208,11 @@ function startGame(){
   hiddenWord = selectWord(select.value);
   console.log(hiddenWord);
   startWordArrays(hiddenWord);
+  usedAttempts = 0;
   remainingAttempts = 7;
   restartKeyboard();
   updateInfo("_");
+  updateInfo(" ");
   reiniciarCrono();
   start();
   
@@ -220,6 +259,17 @@ function crono() {
   date.setMinutes(minutos);
   date.setHours(horas);
 
+
+  if (segundos == 60) {
+    segundos = 0;
+    minutos += 1;
+  }
+
+  if (minutos == 60) {
+    minutos = 0;
+    horas += 1;
+  }
+
   if (horas < 10) {
     horas = "0" + horas;
   }
@@ -230,8 +280,9 @@ function crono() {
     segundos = "0" + segundos;
   }
   
-  if (segundos==10){
-    reiniciarCrono();
+  segundosPenalizacion++;
+  if (segundosPenalizacion==10){
+    segundosPenalizacion=0;
     remainingAttempts--;
     updateAttempts();
     tiempo.classList.add("penalty");

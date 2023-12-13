@@ -1,7 +1,7 @@
 {
-    "comida" : ["Paella", "Kebab"],
-    "animales" : ["Canguro", "Capybara", "Lepisosteiformes"],
-    "objetos" : ["Escoba", "Cubo", "Bidet", "Matryoshka"],
-    "lugares" : ["Londres", "Paris", "Madrid", "Caceres", "Albacete"],
-    "videojuegos" :["Mario", "Yoshi", "Zelda", "Doom"]
+    "comida": ["Paella", "Kebab", "Sushi", "Tacos"],
+    "animales": ["Canguro", "Capybara", "Lepisosteiformes", "Panda", "Gorila"],
+    "objetos": ["Escoba", "Cubo", "Bidet", "Matryoshka", "Laptop", "Guitarra"],
+    "lugares": ["Londres", "Paris", "Madrid", "Caceres", "Albacete", "Tokio", "Nueva York"],
+    "videojuegos": ["Mario", "Yoshi", "Zelda", "Doom", "Fortnite", "Minecraft"]
 }

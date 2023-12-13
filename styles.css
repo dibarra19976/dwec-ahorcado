@@ -135,6 +135,7 @@ body {
 .popup h1 {
   text-align: center;
   font-size: 14pt;
+  padding: 10px;
 }
 
 .form {
@@ -218,6 +219,18 @@ body {
   }
   to {
     color: #fbfcff;  }
+}
+
+.won p, .loose p{
+  text-align: center;
+  padding: 20px;
+} 
+.won h1, .loose h1{
+  font-style: italic;
+} 
+.won, .loose{
+  background-color: #00000022;
+   border-radius: 10px;
 }
 /* https://coolors.co/d0ccd0-fbfcff-605856-1c6e8c-274156  */
 /* https://coolors.co/32cbff-22223b-89a1ef-4a4e69-fecef1 */

@@ -39,5 +39,24 @@ Funcion para seleccionar palabra aleatoria de un objeto
 Seleccionar palabras desde un archivo json
 Reloj 
 
+12-12 
+-- HECHO
+Temporizador y json archivo
+
+-- TODO
+Añadir puntuaciones en local storaoge
+añadir comentarios
+
+13-12
+
+--HECHO
+Temporizador mejorado y guardar puntuaciones en local storaoge
+Mejor pantalla de fin de partida
+
+--TODO 
+Mejorar pantalla de fin de partida al perder
+tabla de puntuaciones
+comentarios
+
 netlify
 https://main--statuesque-malasada-d83dec.netlify.app/
