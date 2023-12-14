@@ -8,18 +8,16 @@
     <title>Ahorcado</title>
   </head>
   <body>
+    <!-- PopUp -->
     <div class="popup-parent" id="popup-parent">
       <div class="popup">
-        <div class="won d-none" id="won">
+        <div class="message d-none" id="message">
           <h1> </h1>
           <p></p>
         </div>
-        <div class="loose d-none" id="loose">
-          <h1></h1>
-          <p></p>
 
-        </div>
 
+        <!-- Un formulario para seleccionar una categoria y que empiece la partida -->
         <h1>Selecciona una categoria</h1>
         <form action="#" class="form" id="form">
           <select name="select" id="select" class="select">
@@ -38,20 +36,25 @@
             class="submit"
           />
         </form>
+        <a href="./leaderboard.html" class="link">Ver tablero de puntuaciones</a>
       </div>
     </div>
+    <!-- Contenedor principal -->
     <div class="container-parent">
       <div class="container">
         <div class="title"><h1>El juego del ahorcado </h1></div>
+        <!-- Palabra oculta -->
         <p class="word" id="word">
           ---
         </p>
+        <!-- Intentos  -->
         <div class="top-info">
           <p>
             Selecciona una letra, le quedan
             <span class="attempts" id="attempts">0</span> intentos
           </p>
         </div>
+        <!-- Teclado -->
         <div class="keys" id="keys">
           <div class="key">A</div>
           <div class="key">B</div>
@@ -82,9 +85,9 @@
           <div class="key">Z</div>
         </div>
       </div>
+      <!-- Tiempo -->
       <div class="bottom-info">
         <p>
-          
           <span id="tiempo">00:00:00</span> 
         </p>
       </div>

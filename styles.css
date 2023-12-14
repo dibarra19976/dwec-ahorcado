@@ -221,16 +221,67 @@ body {
     color: #fbfcff;  }
 }
 
-.won p, .loose p{
+.message p {
   text-align: center;
   padding: 20px;
 } 
-.won h1, .loose h1{
+.message h1{
   font-style: italic;
 } 
-.won, .loose{
+.message{
   background-color: #00000022;
    border-radius: 10px;
 }
+
+.link{
+  text-align: center;
+  text-decoration: none;
+  font-size: 10pt;
+  color: #fbfcff;
+}
 /* https://coolors.co/d0ccd0-fbfcff-605856-1c6e8c-274156  */
 /* https://coolors.co/32cbff-22223b-89a1ef-4a4e69-fecef1 */
+
+table{
+   border-radius: 1em;
+  overflow: hidden;
+}
+
+thead td{
+  background-color: #32CBFF;
+  font-weight: bold;
+  font-size: 15pt;
+}
+
+tr{
+  transition: 0.2s;
+}
+
+tbody tr:hover{
+  scale: 1.02;
+}
+tbody tr:hover td {
+  background-color: #595e80;
+
+}
+td{
+  text-align: center;
+  font-size: 13pt;
+  padding: 10px;
+  background-color: #4A4E69;
+  transition: 0.2s;
+}
+
+.back, .back a{
+  text-decoration: none;
+  font-size: 15pt;
+  color: #fbfcff;
+  position: fixed;
+  padding: 20px;
+  font-weight: bold;
+  transition: 0.1s;
+}
+
+.back:hover > a{
+  scale: 1.03;
+}
